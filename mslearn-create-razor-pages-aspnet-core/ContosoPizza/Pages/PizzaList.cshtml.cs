@@ -89,3 +89,14 @@ namespace ContosoPizza.Pages
         }
     }
 }
+
+
+/*
+
+RANDOM COMMENT from output log of "dotnet watch":
+
+dotnet watch ⌚ Unable to apply hot reload because of a rude edit.
+
+What does this mean?
+
+*/

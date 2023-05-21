@@ -6,6 +6,7 @@ public class Pizza
 {
     public int Id { get; set; }
 
+    /* JEZ:  Anything below the [Required] attribute will need input */
     [Required]
     public string? Name { get; set; }
     public PizzaSize Size { get; set; }
