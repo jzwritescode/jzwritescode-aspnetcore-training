@@ -66,6 +66,9 @@
                 <td>@pizza.Size</td>
                 <td>@(pizza.IsGlutenFree ? "✔️" : string.Empty)</td>
                 <td>
+                    @*  JEZ:  asp-page-handler Delete refers to OnPostDelete; asp-route-id passes in ID of
+                        PizzaList item...
+                     *@
                     <form method="post" asp-page-handler="Delete" asp-route-id="@pizza.Id">
                         <button class="btn btn-danger">Delete</button>
                     </form>

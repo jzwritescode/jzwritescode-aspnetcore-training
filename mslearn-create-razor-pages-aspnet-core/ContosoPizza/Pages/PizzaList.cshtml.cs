@@ -77,5 +77,15 @@ namespace ContosoPizza.Pages
             // JEZ:  reload page and run "OnGet" method...
             return RedirectToAction("Get");
         }
+
+        public IActionResult OnPostDelete(int id)
+        {
+            // JEZ:  Call service to delete pizza
+            _service.DeletePizza(id);
+
+            // JEZ:  This is a simple example, but is better to
+            // make "Get" a variable of some sort?
+            return RedirectToAction("Get");
+        }
     }
 }
