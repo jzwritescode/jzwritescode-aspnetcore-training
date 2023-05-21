@@ -20,9 +20,32 @@ public class PizzaController : ControllerBase
     }
 
 
-    // GET all action
+    /// <summary>
+    /// GET All Action
+    /// </summary>
+    /// <returns>List of Pizza objects</returns>
+    public ActionResult<List<Pizza>> GetAll()
+    {
+        PizzaService.GetAll();
+    }
 
-    // GET by Id action
+    /// <summary>
+    /// JEZ: GET by Id action
+    /// </summary>
+    /// <param name="id">ID of pizza objet record</param>
+    /// <returns>Pizza based on ID passed</returns>
+    [HttpGet("{id}")]
+    public ActionResult<Pizza> Get(int id)
+    {
+        var pizza = PizzaService.Get(id);
+
+        if (pizza == null)
+        {
+            return NotFound();
+        }
+
+        return pizza;
+    }
 
     // POST action
 
