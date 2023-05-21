@@ -1,3 +1,10 @@
+:root {
+    --green: #00FF00;
+    --white: #FFFFFF;
+    --black: #000000;
+  }
+
+
 body {
     font-family: monospace;
 }
