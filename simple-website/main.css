@@ -38,3 +38,8 @@ li {
     --bg: var(--black);
     --fontColor: var(--green);
   }
+
+  .btn {
+    color: var(--btnFontColor);
+    background-color: var(--btnBg);
+  }
