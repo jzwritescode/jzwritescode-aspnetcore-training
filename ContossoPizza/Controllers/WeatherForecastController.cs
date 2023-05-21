@@ -2,6 +2,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ContossoPizza.Controllers;
 
+/// <summary>
+/// JEZ:  Sample class using weather forecasting.  
+/// JEZ:  IMPORTANT NOTE:  Inherit from "ControllerBase" instead of
+/// "Controller" because "Controller" designed for web page views.
+/// 
+/// JEZ:  "ApiController" enables Web API functionality/behavior.
+/// 
+/// JEZ:  "Route("[controller]") 
+///     - defines routing (class name without "Controller", all lowercase)
+/// </summary>
 [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
@@ -18,6 +28,11 @@ public class WeatherForecastController : ControllerBase
         _logger = logger;
     }
 
+    /// <summary>
+    /// JEZ:  Gets weather forecast and returns an array that will
+    /// be converted into JSON.
+    /// </summary>
+    /// <returns></returns>
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
