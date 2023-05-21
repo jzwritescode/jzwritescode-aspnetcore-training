@@ -4,38 +4,9 @@
     ViewData["Title"] = "Pizza List 🍕";
 }
 
-
+@* JEZ:  Page Title as Heading *@
 <h1>Pizza List 🍕</h1>
 
-@* JEZ: Pizza list rendered as HTML table *@
-
-<table class="table mt-5">
-    <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Size</th>
-            <th scope="col">Gluten Free</th>
-            <th scope="col">Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var pizza in Model.PizzaList)
-        {
-            <tr>
-                <td>@pizza.Name</td>
-                <td>@($"{pizza.Price:C}")</td>
-                <td>@pizza.Size</td>
-                <td>@(pizza.IsGlutenFree ? "✔️" : string.Empty)</td>
-                <td>
-                    <form method="post" asp-page-handler="Delete" asp-route-id="@pizza.Id">
-                        <button class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
 
 @* JEZ: Form to add new pizza *@
 <form method="post">
@@ -72,3 +43,35 @@
         <input type="submit" value="Create" class="btn btn-primary" />
     </div>
 </form>
+
+
+@* JEZ: Pizza list rendered as HTML table *@
+
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Size</th>
+            <th scope="col">Gluten Free</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pizza in Model.PizzaList)
+        {
+            <tr>
+                <td>@pizza.Name</td>
+                <td>@($"{pizza.Price:C}")</td>
+                <td>@pizza.Size</td>
+                <td>@(pizza.IsGlutenFree ? "✔️" : string.Empty)</td>
+                <td>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@pizza.Id">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
