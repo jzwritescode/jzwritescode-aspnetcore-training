@@ -5,9 +5,11 @@
   }
 
 
-body {
-    font-family: monospace;
-}
+  body {
+    background: var(--bg);
+    color: var(--fontColor);
+    font-family: helvetica;
+  }
 
 ul {
     font-family: helvetica;
