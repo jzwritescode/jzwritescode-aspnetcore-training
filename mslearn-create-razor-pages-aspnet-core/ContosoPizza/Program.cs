@@ -10,6 +10,13 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<PizzaContext>(options =>
     options.UseSqlite("Data Source=ContosoPizza.db"));
 
+/*
+ * JEZ:  Register PizzaService with DI container.
+ * "AddScoped" method indicates that new PizzaService object should be
+ * created for each HTTP Request and it can be added to any Razor Page...
+ */
+builder.Services.AddScoped<PizzaService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
