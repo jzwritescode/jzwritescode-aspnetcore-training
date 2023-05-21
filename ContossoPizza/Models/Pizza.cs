@@ -5,7 +5,10 @@ namespace ContossoPizza.Models;
 /// </summary>
 public class Pizza
 {
+    /// <summary>
+    /// JEZ:  Record ID
+    /// </summary>
     public int Id { get; set; }
-    public string? Name { get;  set}
+    public string? Name { get; set; }
     public bool IsGlutenFree { get; set; }
 }
