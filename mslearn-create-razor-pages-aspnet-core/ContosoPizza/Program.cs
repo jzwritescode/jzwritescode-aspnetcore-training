@@ -17,6 +17,7 @@ builder.Services.AddDbContext<PizzaContext>(options =>
  */
 builder.Services.AddScoped<PizzaService>();
 
+/* JEZ - IMPORTANT NOTE:  REBUILD PROJECT EACH TIME!!!! */
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
