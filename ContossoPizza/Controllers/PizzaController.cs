@@ -56,7 +56,10 @@ public class PizzaController : ControllerBase
     [HttpPost]
     public IActionResult Create(Pizza pizza)
     {
-         // This code will save the pizza and return a result
+        // Add pizza to data context
+        PizzaService.Add(pizza);
+        // Get HTTP result after adding pizza
+        return CreatedAtAction(nameof(Get), new { id = pizza.Id }, pizza);
     }
 
     /// <summary>
