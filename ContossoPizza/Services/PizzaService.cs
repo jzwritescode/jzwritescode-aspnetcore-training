@@ -1,4 +1,6 @@
+using System.Linq;                      // JEZ:  Needed?
 using ContossoPizza.Models;
+
 
 namespace ContossoPizza.Services;
 
@@ -26,7 +28,9 @@ public static class PizzaService
 
     public static Pizza? Get(int id)
     {
-        Pizza.FirstOrDeftault(p => p.Id == id);
+        // JEZ:  Make sure it's the local Pizzas list...Otherwise, fun
+        // compiler errors shall ensue...
+        return Pizzas.FirstOrDefault<Pizza>(p => p.Id == id);
     }
 
     public static void Add(Pizza pizza)
@@ -37,12 +41,15 @@ public static class PizzaService
 
     public static void Delete(int id)
     {
-        var piza = Get(id);
+        var pizza = Get(id);
 
         if (pizza is null)
         {
             return;
         }
+
+        // Toss this pizza (pun intended?)
+        Pizza.Remove(pizza);
     }
 
     public static void Update(Pizza pizza)

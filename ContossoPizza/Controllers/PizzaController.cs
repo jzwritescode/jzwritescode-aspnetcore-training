@@ -26,7 +26,7 @@ public class PizzaController : ControllerBase
     /// <returns>List of Pizza objects</returns>
     public ActionResult<List<Pizza>> GetAll()
     {
-        PizzaService.GetAll();
+        return PizzaService.GetAll();
     }
 
     /// <summary>
