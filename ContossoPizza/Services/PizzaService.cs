@@ -49,7 +49,7 @@ public static class PizzaService
         }
 
         // Toss this pizza (pun intended?)
-        Pizza.Remove(pizza);
+        Pizzas.Remove(pizza);
     }
 
     public static void Update(Pizza pizza)
