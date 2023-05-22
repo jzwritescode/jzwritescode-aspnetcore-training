@@ -77,7 +77,7 @@ public class PizzaController : ControllerBase
         {
             return BadRequest();
         }
-        
+
         // JEZ:  Get existing pizza
         var existingPizza = PizzaService.Get(id);
         // JEZ:  Do another check to see if we got the pizza...
@@ -101,7 +101,18 @@ public class PizzaController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
-        // This code wil delete the pizza and return a result
+        // JEZ:  Try to find record in question
+        var pizza = PizzaService.Get(id);
+
+        // JEZ:  If not found, then return NotFound result
+        if (pizza is null)
+            return NotFound();
+
+        // JEZ: Remove pizza from data context
+        PizzaService.Delete(id);
+
+        // JEZ:  Again with the no content, but okay I guess...
+        return NoContent();
     }
 
 }
