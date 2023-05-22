@@ -24,6 +24,7 @@ public class PizzaController : ControllerBase
     /// GET All Action
     /// </summary>
     /// <returns>List of Pizza objects</returns>
+    [HttpGet]
     public ActionResult<List<Pizza>> GetAll()
     {
         return PizzaService.GetAll();
@@ -47,10 +48,39 @@ public class PizzaController : ControllerBase
         return pizza;
     }
 
-    // POST action
+    /// <summary>
+    /// JEZ:  POST action - Creates new pizza record
+    /// </summary>
+    /// <param name="pizza">Pizza to be saved</param>
+    /// <returns>Result of POST action</returns>
+    [HttpPost]
+    public IActionResult Create(Pizza pizza)
+    {
+         // This code will save the pizza and return a result
+    }
 
-    // PUT action
+    /// <summary>
+    /// JEZ:  PUT action - updates pizza
+    /// </summary>
+    /// <param name="id">Record of Pizza object to be updated</param>
+    /// <param name="pizza">Pizza record to be saved</param>
+    /// <returns></returns>
+    [HttpPut("{id}")]
+    public IActionResult Update(int id, Pizza pizza)
+    {
+        // This code will update hte pizza and return a result
+    }
 
-    // DELETE action
+
+    /// <summary>
+    /// JEZ:  DELETE action - removes record from data context
+    /// </summary>
+    /// <param name="id">ID of record to be removed</param>
+    /// <returns>Result of action</returns>
+    [HttpDelete("{id}")]
+    public IActionResult Delete(int id)
+    {
+        // This code wil delete the pizza and return a result
+    }
 
 }
