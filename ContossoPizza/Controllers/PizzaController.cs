@@ -67,11 +67,29 @@ public class PizzaController : ControllerBase
     /// </summary>
     /// <param name="id">Record of Pizza object to be updated</param>
     /// <param name="pizza">Pizza record to be saved</param>
-    /// <returns></returns>
+    /// <returns>Result of action</returns>
     [HttpPut("{id}")]
     public IActionResult Update(int id, Pizza pizza)
     {
-        // This code will update hte pizza and return a result
+        // JEZ: check to see if pizza cannot be located in data context
+        // (Added parenthesis as a safety measure.  Too many bad experiences with single-line if)
+        if (id != pizza.Id)
+        {
+            return BadRequest();
+        }
+        
+        // JEZ:  Get existing pizza
+        var existingPizza = PizzaService.Get(id);
+        // JEZ:  Do another check to see if we got the pizza...
+        if (existingPizza is null)
+            return NotFound();
+
+        // JEZ:  Update the pizza...
+        PizzaService.Update(pizza);
+
+        // JEZ: retuns nothing...? I might return an indication the record was
+        // updated, but I might be missing the point...
+        return NoContent();
     }
 
 
